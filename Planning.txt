@@ -1,0 +1,15 @@
+- Homepage
+- User
+    - Username
+    - Email
+    - Password
+    - Registered Places 
+
+- Places    
+    - Title
+    - Description 
+    - Thumb
+    - Category
+    - Adress
+    - Creation data
+    
