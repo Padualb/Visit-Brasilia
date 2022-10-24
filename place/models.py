@@ -27,6 +27,7 @@ class Place(models.Model):
     category = models.CharField(max_length=15, choices=CATEGORY_LIST)
     adress = models.CharField(max_length=100)
     creation_date = models.DateTimeField(default=timezone.now)
+    average_rating = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
@@ -36,3 +37,6 @@ class Comment(models.Model):
     comment = models.TextField(max_length=500)
     rating = models.CharField(max_length=5, choices=RATING_LIST)
     creation_date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.place.title + " -> " + self.rating
