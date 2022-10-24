@@ -1,15 +1,18 @@
 from django.shortcuts import render
+from django.views.generic import CreateView, DetailView, ListView, TemplateView
 
 from .models import Place
 
 
 # Create your views here.
 # url -> view -> html
-def homepage(request):
-    return render(request, "homepage.html")
+class HomePage(TemplateView):
+    template_name = "homepage.html"
 
-def homeplaces(request):
-    context = {}
-    places_list = Place.objects.all()
-    context['places_list'] = places_list
-    return render(request, "homeplaces.html", context)
+class HomePlaces(ListView):
+    template_name = "homeplaces.html"
+    model = Place
+
+class DetailsPlace(DetailView):
+    template_name = "detailsplace.html"
+    model = Place

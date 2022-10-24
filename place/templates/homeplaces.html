@@ -8,12 +8,17 @@ HomePlaces
 {% block content %}
 <div class="py-300 text-red">
     <h1>oioioio</h1>
-    {{ places_list }}
+    {% for place in object_list %}
+    <a href="{% url 'place:detailsplace' place.id %}"><h1>{{place.title}}</h1></a>
+    <img src="{{place.thumb.url}}" alt="">
+    <h1>{{place.description}}</h1>
+    
+    {% endfor %} 
 
 </div>
 <div class="py-30 text-red">
-    <h1>oioioio</h1>
-    {{ places_list }}
+    <a href="">Linkzin dos cria</a>
+    
 
 </div>
 

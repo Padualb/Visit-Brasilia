@@ -12,6 +12,13 @@ CATEGORY_LIST = (
     ("PARTIES", "Parties"),
     ("OTHER", "Other")
 )
+RATING_LIST = (
+    ("1", "1"),
+    ("2", "2"),
+    ("3", "3"),
+    ("4", "4"),
+    ("5", "5")
+)
 
 class Place(models.Model):
     title = models.CharField(max_length=100)
@@ -24,3 +31,8 @@ class Place(models.Model):
     def __str__(self):
         return self.title
 
+class Comment(models.Model):
+    place = models.ForeignKey("Place", related_name="comments", on_delete=models.CASCADE)
+    comment = models.TextField(max_length=500)
+    rating = models.CharField(max_length=5, choices=RATING_LIST)
+    creation_date = models.DateTimeField(default=timezone.now)
