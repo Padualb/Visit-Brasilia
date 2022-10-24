@@ -7,9 +7,9 @@ from django.utils import timezone
 
 # Create your models here.
 CATEGORY_LIST = (
-    ("RESTAURANT", "Restaurant"),
+    ("RESTAURANTS", "Restaurants"),
     ("ATTRACTIONS", "Attractions"),
-    ("PARTYS", "Partys"),
+    ("PARTIES", "Parties"),
     ("OTHER", "Other")
 )
 
