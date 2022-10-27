@@ -6,7 +6,7 @@ HomePlaces
 {% endblock %}
 
 {% block content %}
-<div class="py-300 text-red">
+{% comment %} <div class="py-300 text-red">
     <h1>oioioio</h1>
     {% for place in object_list %}
     <a href="{% url 'place:detailsplace' place.id %}"><h1>{{place.title}}</h1></a>
@@ -17,11 +17,106 @@ HomePlaces
 
 </div>
 <div class="py-30 text-red">
-    <a href="">Linkzin dos cria</a>
+    <h2>new</h2>
+    {{list_recent_places}}
+    {}
+    <h2>oi</h2>
+
+</div> {% endcomment %}
+
+<main class='bg-primary_black min-h-screen w-full'>
     
 
-</div>
+    
+        <section class='bg-black  justify-center py-10'>
+            <div class="p-8 w-10/12 relative" >
+                <h2 class="text-gray-200 text-2xl font-medium">
+                    Attractions
+                </h2>
+                <div class="wrapper">
+                <section id="section1" class="flex flex-nowrap items-center justify-center space-x-8">
+                    <a href="#section2" class="arrow__btn text-6xl page">‹</a>
+                    
+                        
+                        {% for place in object_list %}
+                        
+                        {% if place.category == "ATTRACTIONS"%}
+                        <div class="item h-64 w-1/4 m-4">
+                            <a href="#">
+                            <img src="{{place.thumb.url}}" class="rounded-md w-full h-full object-cover">
+                        
+                            </a>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    
+                        <a href="#section2" class="arrow__btn text-6xl">›</a>
+                </section>
+                    
+                </div>
 
+
+            </div>
+            <div class="p-8 w-10/12 relative" >
+                <h2 class="text-gray-200 text-2xl font-medium">
+                    Restaurants
+                </h2>
+                <div class="wrapper">
+                <section id="section1" class="flex flex-nowrap items-center justify-center space-x-8">
+                    <a href="#section2" class="arrow__btn text-6xl page">‹</a>
+                    
+                        
+                        {% for place in object_list %}
+                        
+                        {% if place.category == "RESTAURANTS"%}
+                        <div class="item h-64 w-1/4 m-4">
+                            <a href="#">
+                            <img src="{{place.thumb.url}}" class="rounded-md w-full h-full object-cover">
+                        
+                            </a>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    
+                        <a href="#section2" class="arrow__btn text-6xl">›</a>
+                </section>
+                    
+                </div>
+
+
+            </div>
+            <div class="p-8 w-10/12 relative" >
+                <h2 class="text-gray-200 text-2xl font-medium">
+                    PARTIES
+                </h2>
+                <div class="wrapper">
+                <section id="section1" class="flex flex-nowrap items-center justify-center space-x-8">
+                    <a href="#section2" class="arrow__btn text-6xl page">‹</a>
+                    
+                       
+                        {% for place in object_list %}
+                        
+                        {% if place.category == "PARTIES"%}
+                        <div class="item h-64 w-1/4 m-4">
+                            <a href="#">
+                            <img src="{{place.thumb.url}}" class="rounded-md w-full h-full object-cover">
+                        
+                            </a>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    
+                        <a href="#section2" class="arrow__btn text-6xl">›</a>
+                </section>
+                    
+                </div>
+
+
+            </div>
+        </section>
+        
+
+</main>
 
 
 {% endblock %} 
