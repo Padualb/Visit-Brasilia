@@ -12,90 +12,98 @@ HomePlaces
 
     
         <section class='bg-slate-300 justify-center py-10 '>
-            <div class="p-8 w-10/12 relative" >
-                <h1 class="text-2xl font-medium text-cyan-900 mt-3">
+            
+
+            <div class="p-8 relative" >
+                <h1 class="text-2xl font-medium text-cyan-900 mb-5 mt-3">
                     Attractions
                 </h1>
                 <div class="wrapper">
-                <section id="section1" class="flex flex-nowrap items-center justify-center space-x-8">
-                    <a href="#section2" class="arrow__btn text-6xl page">‹</a>
+                <section id="section1" class="flex flex-wrap ">
+                    
                     
                         
                         {% for attraction in list_attractions %}
                         
                         
-                        <div id="card" class="shadow-lg shadow-gray-400 item h-max w-1/4 m-4 bg-slate-100 rounded-lg ">
-                            <a href="#">
+                        <div id="card" class="shadow-lg shadow-gray-400 item h-96 w-1/4 m-4 rounded-lg bg-white ">
+                            <a href="{% url 'place:detailsplace' attraction.pk %}">
                             
-                            <img src="{{attraction.thumb.url}}" class="rounded-t-lg">
+                            <img src="{{attraction.thumb.url}}" class="rounded-t-lg h-60 w-full object-cover">
                             <h4 class=" ml-4 mt-2 mb-2 text-cyan-900 uppercase">Attraction</h4>
-                            <h2 class="  ml-4 mb-2 text-cyan-900">{{attraction.title}}</h2> 
-                            <p class=" ml-4 mb-3 text-cyan-900">{{attraction.description|slice:":30"}}</p>   
+                            <h2 class="  ml-4 mb-2 black">{{attraction.title}}</h2> 
+                            <p class=" ml-4 mb-3 text-black mr-3">{{attraction.description|slice:":50"}}[...]</p>   
                         </a>
                         </div>
                         
                         {% endfor %}
                     
-                        <a href="#section2" class="arrow__btn text-6xl">›</a>
+                        
                 </section>
                     
-                </div>
+            </div>
 
 
             </div>
-            <div class="p-8 w-10/12 relative" >
-                <h2 class="text-gray-200 text-2xl font-medium">
+            <div class="p-8 relative" >
+                <h1 class="text-2xl font-medium text-cyan-900 mb-5 mt-3">
                     Restaurants
-                </h2>
+                </h1>
                 <div class="wrapper">
-                <section id="section1" class="flex flex-nowrap items-center justify-center space-x-8">
-                    <a href="#section2" class="arrow__btn text-6xl page">‹</a>
+                <section id="section1" class="flex flex-wrap ">
+                    
                     
                         
                         {% for restaurant in list_restaurants %}
                         
                         
-                        <div class="item h-64 w-1/4 m-4">
-                            <a href="#">
-                            <img src="{{restaurant.thumb.url}}" class="rounded-md w-full h-full object-cover">
-                        
-                            </a>
+                        <div id="card" class="shadow-lg shadow-gray-400 item h-96 w-1/4 m-4 rounded-lg bg-white ">
+                            <a href="{% url 'place:detailsplace' restaurant.pk %}">
+                            
+                            <img src="{{restaurant.thumb.url}}" class="rounded-t-lg h-60 w-full object-cover">
+                            <h4 class=" ml-4 mt-2 mb-2 text-cyan-900 uppercase">{{restaurant.category}}</h4>
+                            <h2 class="  ml-4 mb-2 black">{{restaurant.title}}</h2> 
+                            <p class=" ml-4 mb-3 text-black mr-3">{{restaurant.description|slice:":50"}}[...]</p>   
+                        </a>
                         </div>
                         
                         {% endfor %}
                     
-                        <a href="#section2" class="arrow__btn text-6xl">›</a>
+                        
                 </section>
                     
-                </div>
+            </div>
 
 
             </div>
-            <div class="p-8 w-10/12 relative" >
-                <h2 class="text-gray-200 text-2xl font-medium">
-                    PARTIES
-                </h2>
+            <div class="p-8 relative" >
+                <h1 class="text-2xl font-medium text-cyan-900 mb-5 mt-3">
+                    Parties
+                </h1>
                 <div class="wrapper">
-                <section id="section1" class="flex flex-nowrap items-center justify-center space-x-8">
-                    <a href="#section2" class="arrow__btn text-6xl page">‹</a>
+                <section id="section1" class="flex flex-wrap ">
                     
-                       
+                    
+                        
                         {% for party in list_parties %}
                         
                         
-                        <div class="item h-64 w-1/4 m-4">
-                            <a href="#">
-                            <img src="{{party.thumb.url}}" class="rounded-md w-full h-full object-cover">
-                        
-                            </a>
+                        <div id="card" class="shadow-lg shadow-gray-400 item h-96 w-1/4 m-4 rounded-lg bg-white ">
+                            <a href="{% url 'place:detailsplace' party.pk %}">
+                            
+                            <img src="{{party.thumb.url}}" class="rounded-t-lg h-60 w-full object-cover">
+                            <h4 class=" ml-4 mt-2 mb-2 text-cyan-900 uppercase">{{party.category}}</h4>
+                            <h2 class="  ml-4 mb-2 black">{{party.title}}</h2> 
+                            <p class=" ml-4 mb-3 text-black mr-3">{{party.description|slice:":50"}}[...]</p>   
+                        </a>
                         </div>
                         
                         {% endfor %}
                     
-                        <a href="#section2" class="arrow__btn text-6xl">›</a>
+                        
                 </section>
                     
-                </div>
+            </div>
 
 
             </div>

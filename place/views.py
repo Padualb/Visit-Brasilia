@@ -3,9 +3,10 @@ from django.views.generic import CreateView, DetailView, ListView, TemplateView
 
 from .models import Place
 
-
 # Create your views here.
 # url -> view -> html
+
+
 class HomePage(TemplateView):
     template_name = "homepage.html"
 
@@ -31,4 +32,19 @@ class DetailsPlace(DetailView):
         related_places = Place.objects.filter(category=self.get_object().category)
         context["related_places"] = related_places 
         return context
+
+class SearchPlace(ListView):
+    template_name = "search.html"
+    model = Place
+    
+    #edit obj list
+    def get_queryset(self):
+        search = self.request.GET.get('query')
+        if search:
+            object_list = Place.objects.filter(title__icontains=search)
+            return object_list
+        else:
+            return None    
+        
+    
 

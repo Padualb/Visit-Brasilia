@@ -57,26 +57,28 @@ HomePage Visit Brasilia
     
 </header>
 <main class=' min-h-screen w-full'>
-    <section class='flex  border-gray-900 border-b-8 bg-slate-100 justify-center'>
-        
-        <div class="p-8 w-11/12 relative" >
+    
+  {% for category in  list_categorys %}
+  <section class='flex  border-gray-900 border-b-8 bg-slate-100 justify-center'>
+      
+        <div class="p-8 relative" >
             <h1 class="text-2xl font-medium text-cyan-900 mt-3">
-                Attractions
+                {{category}}
             </h1>
             <div class="wrapper mt-3">
             <section id="section1" class="flex flex-nowrap items-center justify-center space-x-8">
                 
                     
-                    {% for attraction in list_attractions %}
+                    {% for place in list_attractions %}
                     {% if forloop.counter < 5 %}
                     
                     <div id="card" class="shadow-lg shadow-gray-400 item h-96 w-1/4 m-4 rounded-lg bg-white ">
-                        <a href="{% url 'place:detailsplace' attraction.pk %}">
+                        <a href="{% url 'place:detailsplace' place.pk %}">
                         
-                        <img src="{{attraction.thumb.url}}" class="rounded-t-lg h-60 w-full object-cover">
-                        <h4 class=" ml-4 mt-2 mb-2 text-cyan-900 uppercase">Attraction</h4>
-                        <h2 class="  ml-4 mb-2 black">{{attraction.title}}</h2> 
-                        <p class=" ml-4 mb-3 text-black mr-3">{{attraction.description|slice:":50"}}[...]</p>   
+                        <img src="{{place.thumb.url}}" class="rounded-t-lg h-60 w-full object-cover">
+                        <h4 class=" ml-4 mt-2 mb-2 text-cyan-900 uppercase">{{category}}</h4>
+                        <h2 class="  ml-4 mb-2 black">{{place.title}}</h2> 
+                        <p class=" ml-4 mb-3 text-black mr-3">{{place.description|slice:":50"}}[...]</p>   
                     </a>
                     </div>
                     {% endif %}
@@ -92,6 +94,7 @@ HomePage Visit Brasilia
                 
                 
 </section>
+{% endfor %}
 </main>
 
 <footer class=" px-5 py-10 ">

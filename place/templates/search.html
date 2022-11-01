@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Search page
+{% endblock %}
+
+{% block content %}
+
+<main class=' min-h-screen w-full'>
+    
+
+    
+    <section class='bg-slate-300 justify-center py-10 '>
+        
+
+        <div class="p-8 relative" >
+            <h1 class="text-2xl font-medium text-cyan-900 mb-5 mt-3">
+                Results
+            </h1>
+            <div class="wrapper">
+            <section  class="flex flex-wrap ">
+                {% if object_list|length > 0 %}
+                {% for place in object_list %}
+                    
+                    
+                    <div id="card" class="shadow-lg shadow-gray-400 item h-96 w-1/4 m-4 rounded-lg bg-white ">
+                        <a href="{% url 'place:detailsplace' place.pk %}">
+                        
+                        <img src="{{place.thumb.url}}" class="rounded-t-lg h-60 w-full object-cover">
+                        <h4 class=" ml-4 mt-2 mb-2 text-cyan-900 uppercase">{{place.category}}</h4>
+                        <h2 class="  ml-4 mb-2 black">{{place.title}}</h2> 
+                        <p class=" ml-4 mb-3 text-black mr-3">{{place.description|slice:":50"}}[...]</p>   
+                    </a>
+                    </div>
+                    
+                {% endfor %}
+                {% else %}
+                    <h1>Nothing Found</h1>
+                {% endif %}
+                    
+            </section>
+                
+        </div>
+        </section>
+        </main>
+{% endblock %}
