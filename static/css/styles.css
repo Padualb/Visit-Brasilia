@@ -1,4 +1,11 @@
+body{
+    font-family: 'PT Sans', 'sans-serif' !important;
+}
 
+h1{
+    font-size: 36px !important;
+    font-weight: bold !important;
+}
 
 /* Slider */
 
@@ -9,4 +16,23 @@
 .carousel-inner h2{
     font-size: 90px;
     margin-bottom: 30px;
+}
+#card :hover{
+    text-decoration: none;
+}
+#card h1{
+   
+    font-size: 36px !important;
+    font-weight: bold !important;
+    
+}
+#card h2{
+    
+    font-size: 24px !important;
+    font-weight: bold !important;
+}
+
+#card h4{
+    font-size: 8px !important;
+    font-weight: bold !important;
 }

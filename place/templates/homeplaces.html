@@ -1,53 +1,39 @@
 {% extends 'base.html' %}
-
-
+{% load static %}
 {% block title %}
 HomePlaces 
 {% endblock %}
 
 {% block content %}
-{% comment %} <div class="py-300 text-red">
-    <h1>oioioio</h1>
-    {% for place in object_list %}
-    <a href="{% url 'place:detailsplace' place.id %}"><h1>{{place.title}}</h1></a>
-    <img src="{{place.thumb.url}}" alt="">
-    <h1>{{place.description}}</h1>
-    
-    {% endfor %} 
 
-</div>
-<div class="py-30 text-red">
-    <h2>new</h2>
-    {{list_recent_places}}
-    {}
-    <h2>oi</h2>
 
-</div> {% endcomment %}
-
-<main class='bg-primary_black min-h-screen w-full'>
+<main class=' min-h-screen w-full'>
     
 
     
-        <section class='bg-black  justify-center py-10'>
+        <section class='bg-slate-300 justify-center py-10 '>
             <div class="p-8 w-10/12 relative" >
-                <h2 class="text-gray-200 text-2xl font-medium">
+                <h1 class="text-2xl font-medium text-cyan-900 mt-3">
                     Attractions
-                </h2>
+                </h1>
                 <div class="wrapper">
                 <section id="section1" class="flex flex-nowrap items-center justify-center space-x-8">
                     <a href="#section2" class="arrow__btn text-6xl page">‹</a>
                     
                         
-                        {% for place in object_list %}
+                        {% for attraction in list_attractions %}
                         
-                        {% if place.category == "ATTRACTIONS"%}
-                        <div class="item h-64 w-1/4 m-4">
+                        
+                        <div id="card" class="shadow-lg shadow-gray-400 item h-max w-1/4 m-4 bg-slate-100 rounded-lg ">
                             <a href="#">
-                            <img src="{{place.thumb.url}}" class="rounded-md w-full h-full object-cover">
-                        
-                            </a>
+                            
+                            <img src="{{attraction.thumb.url}}" class="rounded-t-lg">
+                            <h4 class=" ml-4 mt-2 mb-2 text-cyan-900 uppercase">Attraction</h4>
+                            <h2 class="  ml-4 mb-2 text-cyan-900">{{attraction.title}}</h2> 
+                            <p class=" ml-4 mb-3 text-cyan-900">{{attraction.description|slice:":30"}}</p>   
+                        </a>
                         </div>
-                        {% endif %}
+                        
                         {% endfor %}
                     
                         <a href="#section2" class="arrow__btn text-6xl">›</a>
@@ -66,16 +52,16 @@ HomePlaces
                     <a href="#section2" class="arrow__btn text-6xl page">‹</a>
                     
                         
-                        {% for place in object_list %}
+                        {% for restaurant in list_restaurants %}
                         
-                        {% if place.category == "RESTAURANTS"%}
+                        
                         <div class="item h-64 w-1/4 m-4">
                             <a href="#">
-                            <img src="{{place.thumb.url}}" class="rounded-md w-full h-full object-cover">
+                            <img src="{{restaurant.thumb.url}}" class="rounded-md w-full h-full object-cover">
                         
                             </a>
                         </div>
-                        {% endif %}
+                        
                         {% endfor %}
                     
                         <a href="#section2" class="arrow__btn text-6xl">›</a>
@@ -94,16 +80,16 @@ HomePlaces
                     <a href="#section2" class="arrow__btn text-6xl page">‹</a>
                     
                        
-                        {% for place in object_list %}
+                        {% for party in list_parties %}
                         
-                        {% if place.category == "PARTIES"%}
+                        
                         <div class="item h-64 w-1/4 m-4">
                             <a href="#">
-                            <img src="{{place.thumb.url}}" class="rounded-md w-full h-full object-cover">
+                            <img src="{{party.thumb.url}}" class="rounded-md w-full h-full object-cover">
                         
                             </a>
                         </div>
-                        {% endif %}
+                        
                         {% endfor %}
                     
                         <a href="#section2" class="arrow__btn text-6xl">›</a>
