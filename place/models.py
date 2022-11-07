@@ -2,6 +2,7 @@ from distutils.command.upload import upload
 from email.policy import default
 from unittest.util import _MAX_LENGTH
 
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils import timezone
 
@@ -40,3 +41,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.place.title + " -> " + self.rating
+
+
+class User(AbstractUser):
+    registered_places = models.ManyToManyField("Place")    
